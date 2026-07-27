@@ -1,0 +1,8 @@
+# Run all tests
+python manage.py test
+
+# With coverage
+pytest
+
+# Specific test file
+python manage.py test tests.test_orders

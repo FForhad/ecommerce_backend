@@ -1,0 +1,8 @@
+# Build and run containers
+docker-compose up -d --build
+
+# Check logs
+docker-compose logs -f app
+
+# Stop containers
+docker-compose down

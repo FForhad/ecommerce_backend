@@ -1,0 +1,15 @@
+# Create migrations for all apps
+python manage.py makemigrations users
+python manage.py makemigrations categories
+python manage.py makemigrations products
+python manage.py makemigrations orders
+python manage.py makemigrations payments
+
+# Apply migrations
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+
+# Seed data
+python manage.py seed_data

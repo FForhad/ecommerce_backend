@@ -1,0 +1,22 @@
+# 1. Clone the repository
+git clone <your-repo-url>
+cd ecommerce_backend
+
+# 2. Copy environment variables
+cp .env.example .env
+
+# 3. Update .env with your credentials
+# Edit STRIPE_SECRET_KEY, BKASH_APP_KEY, etc.
+
+# 4. Run with Docker
+docker-compose up -d --build
+
+# 5. Access the application
+# API: http://localhost:8000/api/
+# Admin: http://localhost:8000/admin/
+# API Docs: http://localhost:8000/swagger/
+
+# 6. Test the API
+curl -X POST http://localhost:8000/api/auth/login/ \
+  -H "Content-Type: application/json" \
+  -d '{"email": "admin@example.com", "password": "admin123"}'

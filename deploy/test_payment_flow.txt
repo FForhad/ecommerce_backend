@@ -1,0 +1,29 @@
+# 1. Register a user
+curl -X POST http://localhost:8000/api/auth/register/ \
+  -H "Content-Type: application/json" \
+  -d '{"email": "test@example.com", "password": "test123", "first_name": "Test", "last_name": "User"}'
+
+# 2. Login and get token
+curl -X POST http://localhost:8000/api/auth/login/ \
+  -H "Content-Type: application/json" \
+  -d '{"email": "test@example.com", "password": "test123"}'
+
+# 3. Create an order
+curl -X POST http://localhost:8000/api/orders/create/ \
+  -H "Authorization: Bearer <your-token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "items": [{"product_id": "<product-id>", "quantity": 2}],
+    "shipping_address": {
+      "street": "123 Main St",
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "postal_code": "1200"
+    }
+  }'
+
+# 4. Initiate payment
+curl -X POST http://localhost:8000/api/payments/initiate/ \
+  -H "Authorization: Bearer <your-token>" \
+  -H "Content-Type: application/json" \
+  -d '{"order_id": "<order-id>", "provider": "stripe"}'

@@ -1,0 +1,18 @@
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run migrations
+python manage.py migrate
+
+# Create admin user
+python manage.py create_admin
+
+# Seed sample data
+python manage.py seed_data
+
+# Run development server
+python manage.py runserver 0.0.0.0:8000
